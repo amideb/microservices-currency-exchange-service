@@ -13,7 +13,10 @@ public class CurrencyExchangeController {
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExchangeValue(@PathVariable String from,
                                                   @PathVariable String to){
-        return new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(50));
+        CurrencyExchange currencyExchange = new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(50));
+        currencyExchange.setEnvironment("8080");
+
+        return currencyExchange;
 
     }
 }
